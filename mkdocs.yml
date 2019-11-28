@@ -1,3 +1,5 @@
-site_name: My Notebook
+site_name: NoteBook
 nav:
-        - English Grammar: english_grammar.md
+    - Home: index.md
+    - English: english_grammar.md
+theme: readthedocs
