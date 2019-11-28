@@ -1,5 +1,5 @@
 site_name: NoteBook
 nav:
     - Home: index.md
-    - English: english_grammar.md
+    - English Grammar: english_grammar.md
 theme: readthedocs
