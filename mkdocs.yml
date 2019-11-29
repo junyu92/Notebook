@@ -2,4 +2,5 @@ site_name: NoteBook
 nav:
     - Home: index.md
     - English Grammar: english_grammar.md
+    - Timer: timer.md
 theme: readthedocs
