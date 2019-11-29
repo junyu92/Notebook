@@ -48,3 +48,44 @@ had been + -ing形式
 过去完成时表示过去已经完成
 
 * Vicky felt pleased because she **had done** so much work.
+
+## 将来时
+
+将来时具有多种形式，取决于如何看待将来的事情。
+
+### will
+
+1. **will** 表示一种中性方式。 用来表示对将来的了解和看法，它既不表示已经决定要做什么事情，也不表示正在计划什么事情。
+    * I **will be** free for most of the summer. (中性的将来)
+
+2. **will**还可以表示**瞬间的决定**，即表示几乎在说话的同时决定或同意做某事。
+    * I'm thirsty. I think I **will make** some tee.
+    * I don't think I **will do** any work tonight. I'm too tired.
+
+3. **will**还可用于点菜。
+    * I **will have** the ham salad, please.
+
+4. **will**可以表示主动帮忙或邀请。
+    * I **will pell** the potatoes. ~ Oh, thank you.
+    * **Will** you **come** to lunch? ~Yes, thank you.
+
+### Shall
+
+**shall**的用法和**will**差不多，但只用于第一人称**I**或**We**后。**shall**比**will**更正式。
+
+### be going to
+
+**be going to**用于表示已经决定做某事。
+
+### 有、无把握
+
+当我们对将来没有把握的时候，可以使用 **might**, **could**.
+
+* We **might** go to Canada.
+
+* It **could** snow soon.
+
+还可以使用**I'm sure**, **definitely**, **I expect**, **I (don't) think**,**probably**.
+
+* **I'm sure** it'll be all right.
+* We're **definitely** going to be at the meeting. 
