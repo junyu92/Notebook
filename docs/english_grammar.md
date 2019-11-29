@@ -13,6 +13,7 @@
 had + 过去分词
 
 #### 用法
+
 在讨论过去之前的情况时，使用过去完成时.
 
 #### 例如
@@ -36,9 +37,11 @@ had + 过去分词
 ### 过去完成进行时(past perfect continuous)
 
 #### 形式
+
 had been + -ing形式
 
 #### Usage
+
 表示过去持续了一段时间的动作
 
 #### For example
