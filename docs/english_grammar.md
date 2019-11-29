@@ -226,5 +226,6 @@ When后面不用将来时(will)，而是使用一般现在时。
 也可以用现在进行时表将来，尤其在**when**和**while**之后。
 
 例如
+
 * **When** I **am boating** along the canal next week, I might be able to relax.
 * Mark is going to listen to music **while** he **is driving** to Scotland.
