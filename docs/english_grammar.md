@@ -55,27 +55,88 @@ had been + -ing形式
 
 ### will
 
-1. **will** 表示一种中性方式。 用来表示对将来的了解和看法，它既不表示已经决定要做什么事情，也不表示正在计划什么事情。
-    * I **will be** free for most of the summer. (中性的将来)
+#### 1. **will** 表示一种中性方式。 用来表示对将来的了解和看法，它既不表示已经决定要做什么事情，也不表示正在计划什么事情
 
-2. **will**还可以表示**瞬间的决定**，即表示几乎在说话的同时决定或同意做某事。
-    * I'm thirsty. I think I **will make** some tee.
-    * I don't think I **will do** any work tonight. I'm too tired.
+* I **will be** free for most of the summer. (中性的将来)
 
-3. **will**还可用于点菜。
-    * I **will have** the ham salad, please.
+表达的是将来的事实，而不是一种打算：
 
-4. **will**可以表示主动帮忙或邀请。
-    * I **will pell** the potatoes. ~ Oh, thank you.
-    * **Will** you **come** to lunch? ~Yes, thank you.
+* I **will be** twenty next Friday.
+
+#### 2. **will**还可以表示**瞬间的决定**，即表示几乎在说话的同时决定或同意做某事
+
+* I'm thirsty. I think I **will make** some tee.
+* I don't think I **will do** any work tonight. I'm too tired.
+
+#### 3. **will**还可用于点菜
+
+* I **will have** the ham salad, please.
+
+#### 4. **will**可以表示主动帮忙或邀请
+
+* I **will peel** the potatoes. ~ Oh, thank you.
+* **Will** you **come** to lunch? ~Yes, thank you.
 
 ### Shall
 
-**shall**的用法和**will**差不多，但只用于第一人称**I**或**We**后。**shall**比**will**更正式。
+**shall**的用法和**will**差不多，但只用于第一人称**I**或**We**后。**shall**比**will**更正式
 
 ### be going to
 
-**be going to**用于表示已经决定做某事。
+#### 1. **be going to**用于**表示已经决定做某事**
+
+例如
+
+* I **am going to watch** the next programme.
+* Emma **is going to do** an experiment this afternoon.
+
+现在进行时可以具有一种同**be going to**相似的意思。
+
+* I **am going to visit** my friend at the weekend.
+* I **am visiting** my friend at the weekend.
+
+但不能用**will**。
+
+#### 2. I'm not going to可用于拒绝
+
+* I'm sorry, I **am not going to walk** half a mile in the rain.
+
+#### 3. **be going to**可以用于预言
+
+例如，当梯子正在动的时候
+
+* Oh no! I **am going to** fall!
+* Do you think **it's going to rain?**
+
+**will**用于预测将来，而**be going to**是看到某事将要发生，根据当前的情况用**be going to**做出预测。
+
+* I think United *will win* the game.
+* There isn't a cloud in the sky. * * a lovely day.
+
+### 现在时(present tense)表示将来
+
+#### 1. 现在进行时
+
+与**be going to**用法一致，见上
+
+#### 2. 一般现在时
+
+表示日程表：
+
+* What time **does** your train **leave** tomorrow?
+* The train **leaves** at seven twenty-three tomorrow morning.
+
+#### be to和be about to
+
+**be to**用于**官方安排**的将要发生的事，也可用现在进行时。
+
+* The queen **is to visit** Portugal in November.
+* The queen **is visiting** Portugal in November.
+
+**be about to**表示**最近的将来**
+
+* The place is at the end of the runway. It **is about to take** off.
+* Do you want to say goodbye to our visitors? They **are about to leave**.
 
 ### 有、无把握
 
@@ -88,4 +149,4 @@ had been + -ing形式
 还可以使用**I'm sure**, **definitely**, **I expect**, **I (don't) think**,**probably**.
 
 * **I'm sure** it'll be all right.
-* We're **definitely** going to be at the meeting. 
+* We're **definitely** going to be at the meeting.
