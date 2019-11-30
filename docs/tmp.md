@@ -103,4 +103,4 @@ int clocksource_unregister(struct clocksource *cs)
 
 ## clockevents framework
 
-
+Main goal of the clockevents is to manage clock event devices or in other words - to manage devices that allow to register an event or in other words interrupt that is going to happen at a defined point of time in the future.
