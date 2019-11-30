@@ -1,6 +1,10 @@
 site_name: NoteBook
 nav:
     - Home: index.md
-    - English Grammar: english_grammar.md
-    - Timer: timer.md
+    - English Grammar:
+        - 'verb': 'verb.md'
+        - 'model verb': 'model_verb.md'
+        - 'preposition': 'preposition.md'
+    - Linux:
+        - 'Timer': 'timer.md'
 theme: readthedocs
