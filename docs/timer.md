@@ -1,6 +1,6 @@
 # Time management
 
-## Tiemr
+## Timer
 
 Linux提供**software tiemr**使得kernel functions能够在将来被调用。
 
