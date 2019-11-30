@@ -20,7 +20,7 @@ while (time_after_eq(jiffies, base->clk)) {
 }
 ```
 
-## 使用timer
+### 使用timer
 
 首先我们要定义一个timer_list结构体，然后使用```init_timer```或``TIMER_INITIALIZER``初始化它。
 
@@ -33,3 +33,51 @@ void add_timer(struct timer_list * timer);
 int del_timer(struct timer_list * timer);
 ```
 来启用或删除一个timer.
+
+## clockevents framework
+
+## clocksource framework
+
+Linux支持多种时钟源(clock sources)，例如``drivers/clocksource``下以及架构相关的时钟源，每个时钟源都有自己的频率(frequency)。
+clocksource framework的目标是
+
+1. 提供API来选择最佳的时钟源(即频率最高的时钟源)，
+2. 将时钟源提供的atomic counter转为人类可读的时钟源(e.g. nanosecond)
+
+时钟源的结构体如下
+
+```c
+struct clocksource {
+        u64 (*read)(struct clocksource *cs);
+        u64 mask;
+        u32 mult;
+        u32 shift;
+        u64 max_idle_ns;
+        u32 maxadj;
+#ifdef CONFIG_ARCH_CLOCKSOURCE_DATA
+        struct arch_clocksource_data archdata;
+#endif
+        u64 max_cycles;
+        const char *name;
+        struct list_head list;
+        int rating;
+        int (*enable)(struct clocksource *cs);
+        void (*disable)(struct clocksource *cs);
+        unsigned long flags;
+        void (*suspend)(struct clocksource *cs);
+        void (*resume)(struct clocksource *cs);
+        void (*mark_unstable)(struct clocksource *cs);
+        void (*tick_stable)(struct clocksource *cs);
+
+        /* private: */
+#ifdef CONFIG_CLOCKSOURCE_WATCHDOG
+        /* Watchdog related data, used by the framework */
+        struct list_head wd_list;
+        u64 cs_last;
+        u64 wd_last;
+#endif
+        struct module *owner;
+};
+```
+
+* ``list``记录了所有的时钟源
