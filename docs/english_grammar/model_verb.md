@@ -55,7 +55,7 @@
 
 表示许可时，用**can**和**may**，但不用**could**. **May**比较正式，在口语中不常用。
 
-** Could I borrow your calculator? ~ Of course you **can**.
+* Could I borrow your calculator? ~ Of course you **can**.
 
 类似的，表示不许可时，用**can't**或**may not**，也可用**must not**，但不用**could not**。
 
