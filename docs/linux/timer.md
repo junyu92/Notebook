@@ -10,6 +10,25 @@ Linux提供两种类型的**timer**:
 
 * interval timers
 
+### 数据结构
+
+```c
+struct timer_list {
+        /*
+         * All fields that change during normal runtime grouped to the
+         * same cacheline
+         */
+        struct hlist_node       entry;
+        unsigned long           expires;
+        void                    (*function)(struct timer_list *);
+        u32                     flags;
+
+#ifdef CONFIG_LOCKDEP
+        struct lockdep_map      lockdep_map;
+#endif
+};
+```
+
 ### 初始化
 
 在``start_kernel``初始化时，内核会调用``init_timers``函数。
@@ -251,19 +270,79 @@ int clocksource_unregister(struct clocksource *cs)
 
 Main goal of the clockevents is to manage clock event devices or in other words - to manage devices that allow to register an event or in other words interrupt that is going to happen at a defined point of time in the future.
 
-```c
-struct timer_list {
-        /*
-         * All fields that change during normal runtime grouped to the
-         * same cacheline
-         */
-        struct hlist_node       entry;
-        unsigned long           expires;
-        void                    (*function)(struct timer_list *);
-        u32                     flags;
+由于这部分只有x86使用，暂时略过。
 
-#ifdef CONFIG_LOCKDEP
-        struct lockdep_map      lockdep_map;
-#endif
-};
+## API
+
+应用程序通过以下系统调用获得时间有关的信息:
+
+* ``clock_gettime``
+* ``gettimeofday``
+* ``nanosleep``
+
+### clock_gettime
+
+```c
+#include <time.h>
+#include <sys/time.h>
+#include <stdio.h>
+
+int main(int argc, char **argv)
+{
+    char buffer[40];
+    struct timeval time;
+
+    gettimeofday(&time, NULL);
+
+    strftime(buffer, 40, "Current date/time: %m-%d-%Y/%T", localtime(&time.tv_sec));
+    printf("%s\n",buffer);
+
+    return 0;
+}
 ```
+
+``clock_gettime``接收两个参数, 第一个指向``timeval``结构用来接收返回值.
+第二个参数指向``timezone``结构, 正如它的名字一样，表示的是时区.
+
+我们用``strftime``函数将时间(microsecond)转换为人类可读的信息.
+
+在x86平台下, ``gettimeofday``是``__vdso_gettimeofday``的弱符号.
+
+```c
+int gettimeofday(struct timeval *, struct timezone *)
+    __attribute__((weak, alias("__vdso_gettimeofday")));
+
+int __vdso_gettimeofday(struct __kernel_old_timeval *tv, struct timezone *tz)
+{
+        return __cvdso_gettimeofday(tv, tz);
+}
+```
+
+而``__vdso_gettimeofday``函数简单的调用``__cvdso_gettimeofday``.
+
+```c
+static __maybe_unused int
+__cvdso_gettimeofday(struct __kernel_old_timeval *tv, struct timezone *tz)
+{
+        const struct vdso_data *vd = __arch_get_vdso_data();
+
+        if (likely(tv != NULL)) {
+                struct __kernel_timespec ts;
+        
+                if (do_hres(&vd[CS_HRES_COARSE], CLOCK_REALTIME, &ts))
+                        return gettimeofday_fallback(tv, tz);
+
+                tv->tv_sec = ts.tv_sec;
+                tv->tv_usec = (u32)ts.tv_nsec / NSEC_PER_USEC;
+        }
+
+        if (unlikely(tz != NULL)) {
+                tz->tz_minuteswest = vd[CS_HRES_COARSE].tz_minuteswest;
+                tz->tz_dsttime = vd[CS_HRES_COARSE].tz_dsttime;
+        }
+
+        return 0;
+}
+```
+
+如果``do_hres``失败那么会走到真正的系统调用``__NR_gettimeofday``中. 通过调用``do_hres``会初始化``ts``然后用它初始化``tv``.
