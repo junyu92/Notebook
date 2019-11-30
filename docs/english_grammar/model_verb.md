@@ -13,16 +13,11 @@
 **be able to**更正式一些，但以下情况必须用**be able to**:
 
 1. 带to的不定式
-
-* It's nice **to be able to go** to the opera.
-
+    * It's nice **to be able to go** to the opera.
 2. 在情态动词后
-
-* Melanie **might be able to** help us.
-
+    * Melanie **might be able to** help us.
 3. 现在完成时
-
-* It's been quiet today. I **have been able to** get some work done.
+    * It's been quiet today. I **have been able to** get some work done.
 
 **我们还可以用can, will be able to表示将来:**
 
