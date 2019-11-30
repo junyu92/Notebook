@@ -34,8 +34,6 @@ int del_timer(struct timer_list * timer);
 ```
 来启用或删除一个timer.
 
-## clockevents framework
-
 ## clocksource framework
 
 Linux支持多种时钟源(clock sources)，例如``drivers/clocksource``下以及架构相关的时钟源，每个时钟源都有自己的频率(frequency)。
@@ -43,6 +41,8 @@ clocksource framework的目标是
 
 1. 提供API来选择最佳的时钟源(即频率最高的时钟源)，
 2. 将时钟源提供的atomic counter转为人类可读的时钟源(e.g. nanosecond)
+
+### 数据结构
 
 时钟源的结构体如下
 
@@ -81,3 +81,26 @@ struct clocksource {
 ```
 
 * ``list``记录了所有的时钟源
+* ``mult``和``shift``用来将atomic counter转换为纳秒，通过
+```c
+ns ~= (clocksource * mult) >> shift
+```
+
+### API
+
+注册时钟源使用下面的API
+
+```c
+static inline int clocksource_register_hz(struct clocksource *cs, u32 hz)
+static inline int clocksource_register_khz(struct clocksource *cs, u32 khz)
+```
+
+注销时钟源使用
+
+```c
+int clocksource_unregister(struct clocksource *cs)
+```
+
+## clockevents framework
+
+
