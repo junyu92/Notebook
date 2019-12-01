@@ -4,6 +4,7 @@ nav:
     - English Grammar:
         - 'Verb': 'english_grammar/verb.md'
         - 'Model verb': 'english_grammar/model_verb.md'
+        - 'Infinitive and -ing': 'english_grammar/infinitive_and_ving.md'
         - 'Preposition': 'english_grammar/preposition.md'
     - Linux:
         - 'Timer': 'linux/timer.md'
