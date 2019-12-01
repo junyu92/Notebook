@@ -86,3 +86,34 @@
 **may not**, **might not**表示**反面情况是有可能的**, **could not**表示某事是不可能的.
 
 当意识到某事肯定属实时，用**must**；当意识到某事不可能时，用**can't**.
+
+## must, have to
+
+**must**, **have to**表示**某事是必须的**.
+
+* **must**表示一种**吩咐**, 也可以表示一种**愿望**
+    + You **must** exercise.(我在吩咐你)
+    + I **must** buy a newspaper. I want to see the racing results.
+* **have to**表示**客观情况**
+    + I **have to** exercise.(可能是医生要求我)
+
+在**过去时**或带**will的将来时**的场合中，需要用**have to**.
+
+* Emma **had to** go to the dentist yesterday.
+* That wasn't very good. We **will have to** do better next time.
+
+在一些其它结构中也需要用**have to**:
+
+1. 带to的不定式
+    * I don't want **to have to** wait in a queue for ages.
+2. 在情态动词后
+    * Emma has toothache. She **might have to** go to the dentist.
+3. 现在完成时
+    * **Did** you **have to** pay for your second cup of coffee?
+
+### have got to
+
+与**have to**意思相同, 不过**have got to**是非正式的用法, 主要用于现在时.
+
+* **I have to**/**I've got to** make my sandwiches.
+* **Do** we **have to** apply/**Have** we **got to** apply for a visa?
