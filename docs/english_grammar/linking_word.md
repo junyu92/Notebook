@@ -66,3 +66,55 @@ but和although用于连接两个句子.
 但是对于具体动作的目的, 不用**for + v-ing**
 
 * I put the heater on **to keep** the plants warm.
+
+## 意思为and的连词
+
+* too/as well
+* also
+* In addition
+* Besides
+* Futhermore
+
+## 意思为but的连词
+
+* Still
+* however
+* Nevertheless/all the same
+* on the other hand
+
+## 意思为so的连词
+
+* therefore
+* Consequently/as a result
+
+## 改换措辞
+
+* In other words
+
+## 自我更正
+
+* I mean/Or rather
+
+## 对比
+
+* On the contrary
+
+## 继续话题
+
+* Talking of
+
+## 转换话题
+
+* By the way
+
+## 支持前面的陈述
+
+* After all
+
+## 排除
+
+* Anyway
+
+## 举例
+
+* For example/for instance
