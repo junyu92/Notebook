@@ -71,3 +71,20 @@ struct file_system_operations {
         struct lock_class_key s_umount_key;
 };
 ```
+
+## open
+
+下面以``open``系统调用为例, 看一下fs的流程.
+
+```c
+SYSCALL_DEFINE3(open, const char __user *, filename, int, flags, umode_t, mode)
+{
+        if (force_o_largefile())
+                flags |= O_LARGEFILE;
+
+        return do_sys_open(AT_FDCWD, filename, flags, mode);
+}
+```
+
+这个函数主要调用``do_sys_open``, 其中``AT_FDCWD``表示在当前目录.
+
