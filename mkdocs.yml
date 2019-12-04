@@ -9,4 +9,5 @@ nav:
         - 'Linking word': 'english_grammar/linking_word.md'
     - Linux:
         - 'Timer': 'linux/timer.md'
+        - 'File System': 'linux/fs.md'
 theme: readthedocs
