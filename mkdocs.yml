@@ -6,6 +6,7 @@ nav:
         - 'Model verb': 'english_grammar/model_verb.md'
         - 'Infinitive and -ing': 'english_grammar/infinitive_and_ving.md'
         - 'Preposition': 'english_grammar/preposition.md'
+        - 'Conditional': 'english_grammar/conditional.md'
         - 'Linking word': 'english_grammar/linking_word.md'
     - Linux:
         - 'Timer': 'linux/timer.md'
