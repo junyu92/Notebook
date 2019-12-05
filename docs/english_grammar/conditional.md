@@ -72,3 +72,29 @@
 用于为了避免以后可能出现的麻烦而做某事
 
 * Take a sandwich with you **in case** you get hungry.
+
+### wish
+
+#### wish ... would
+
+表示希望某事发生或停止
+
+* I **wish** you **would** put those shelves up soon.
+
+#### wish ... 过去时
+
+表示希望现状有变化
+
+* I **wish** I **lived** in a big city. It's so boring in the country.
+
+#### wish ... 过去完成时
+
+#### 表示对过去发生的事情的愿望
+
+* I **wish** you **had told** me about the dance. I would have gone.
+
+### If only
+
+**If only**后面也可接would, 过去时. 它比**wish**更强烈.
+
+* **If only** I lived in a big city.
