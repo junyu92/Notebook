@@ -42,3 +42,33 @@
 在第二类条件句中，有时用**were**替代**was**
 
 * If I **were** you, I'd ask a lawyer for some advice.
+
+### 第三类条件句
+
+第三类条件句用于表示过去发生的与实际不同的情况, 有时表示对别人的批评或指出别人的错误.
+
+* If you **had been** a bit more careful, you wouldn't have cut yourself.
+
+从句用**过去完成时**(had been), 主句常用**would have**, **could have**和**might have**.
+
+第三类条件句也可以用于表示对过去情况的后悔和遗憾.
+
+* If I hadn't fallen ill and missed the interview, I might have got the job.
+
+## If, when
+
+**If**表示认为可能发生的情况, **when**表示认为将要发生的情况. 在不可能的或假想的情况时, 用**if**不用
+**when**.
+
+### If, Unless
+
+**if ... not**与**unless**的意思相同
+
+* I can't see **if** I **don't** wear glasses.
+* I can't see **unless** I wear glasses.
+
+### in case
+
+用于为了避免以后可能出现的麻烦而做某事
+
+* Take a sandwich with you **in case** you get hungry.
