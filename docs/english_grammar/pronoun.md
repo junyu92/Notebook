@@ -32,5 +32,5 @@
 
 * I've been looking for a coat, but I can't find **a nice one**.
 
-除了**one**之外，还可以用**some**, **ant**, **it**, **them**. 为确指时， 用
+除了**one**之外, 还可以用**some**, **ant**, **it**, **them**. 为确指时, 用
 **one**, **some**/**any**, 特指时用**it**, **they**/**them**.
