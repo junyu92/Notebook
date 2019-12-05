@@ -60,40 +60,40 @@
 **If**表示认为可能发生的情况, **when**表示认为将要发生的情况. 在不可能的或假想的情况时, 用**if**不用
 **when**.
 
-### If, Unless
+## If, Unless
 
 **if ... not**与**unless**的意思相同
 
 * I can't see **if** I **don't** wear glasses.
 * I can't see **unless** I wear glasses.
 
-### in case
+## in case
 
 用于为了避免以后可能出现的麻烦而做某事
 
 * Take a sandwich with you **in case** you get hungry.
 
-### wish
+## wish
 
-#### wish ... would
+### wish ... would
 
 表示希望某事发生或停止
 
 * I **wish** you **would** put those shelves up soon.
 
-#### wish ... 过去时
+### wish ... 过去时
 
 表示希望现状有变化
 
 * I **wish** I **lived** in a big city. It's so boring in the country.
 
-#### wish ... 过去完成时
+### wish ... 过去完成时
 
-#### 表示对过去发生的事情的愿望
+表示对过去发生的事情的愿望
 
 * I **wish** you **had told** me about the dance. I would have gone.
 
-### If only
+## If only
 
 **If only**后面也可接would, 过去时. 它比**wish**更强烈.
 
