@@ -7,8 +7,11 @@ nav:
         - 'Infinitive and -ing': 'english_grammar/infinitive_and_ving.md'
         - 'Pronoun': 'english_grammar/pronoun.md'
         - 'Preposition': 'english_grammar/preposition.md'
+        - 'Reported speech': 'english_grammar/reported_speech.md'
         - 'Conditional': 'english_grammar/conditional.md'
         - 'Linking word': 'english_grammar/linking_word.md'
+    - On Writing Well:
+        - 'The Transaction': 'on_writing_well/01_the_transaction.md'
     - Linux:
         - 'Timer': 'linux/timer.md'
         - 'File System': 'linux/fs.md'
