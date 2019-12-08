@@ -425,6 +425,54 @@ non-incremental.
 
 ## map
 
+In this section, we will talk about ``Incr_map`` library, which lets you build
+efficient incremental computations on top of ``Map.t``'s.
+
+```ocaml
+open Core
+
+module Symbol : Identifiable = String
+
+module Dir = struct
+  type t = Buy | Sell [@@deriving equal]
+end
+
+module Order = struct
+  module Id : Identifiable = String
+  type t =
+    { sym: Symbol.t
+    ; size: int
+    ; price: float
+    ; dir: Dir.t
+    ; id : Id.t
+    }
+end
+```
+
+The following function is a simple, all-at-once computation that takes
+a collection of orders, presented as a map indexed by order-id, and
+returns the total number of shares.
+
+```ocaml
+let shares (orders : Order.t Map.M(Order.Id).t) =
+  Map.fold orders ~init:0 ~f:(fun ~key:_ ~data:o acc -> acc + o.size)
+
+val shares : Order.t Core.Map.M(Order.Id).t -> int = <fun>
+```
+
+Now, let's say we want to do this incrementally, so that if a new order
+is added to the map, we don't have to recompute everything. We could
+simply use the ordinary Incremental ``map`` operator:
+
+```ocaml
+module Incr = Incremental.Make ()
+open Incr.Let_syntax;;
+
+let shares orders = orders >>| shares
+```
+
+TODO.
+
 ## pitfalls
 
 ## time
