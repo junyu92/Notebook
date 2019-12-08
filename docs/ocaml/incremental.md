@@ -275,6 +275,154 @@ let int_cutoff = Incr.Cutoff.of_equal Int.equal
 
 ## dynamic computations with bind
 
+Bind provides us with ont simple mechanism for making computations
+more dynamic.
+
+Let's consider two different ways of expressing an if statement, one
+using ``map``, one using ``bind``.
+
+### Map
+
+```ocaml
+open Core
+module Incr = Incremental.Make ()
+open Incr.Let_syntax;;
+
+let if_with_map c t e =
+  let%map c = c and t = t and e = e in
+  if c then t else e
+```
+
+This creates a computation graph that looks something like this:
+
+```
+  +---+
+  | c |-.
+  +---+  \
+  +---+   '->+----+
+  | t |----->| if |
+  +---+   .->+----+
+  +---+  /
+  | e |-'
+  +---+
+```
+
+### Bind
+
+```ocaml
+let if_with_bind c t e =
+  let%bind c = c in
+  if c then t else e
+```
+
+Here, we bind on ``c``, and pick the corresponding incremental depending
+on the value of ``c``.  The dependency structure now will look like one
+of the following two pictures:
+
+```
+    if c is true             if c is false
+
+   +---+                    +---+
+   | c |-.                  | c |-.
+   +---+  \                 +---+  \
+   +---+   '->+----+        +---+   '->+----+
+   | t |----->| if |        | t |      | if |
+   +---+      +----+        +---+   .->+----+
+   +---+                    +---+  /
+   | e |                    | e |-'
+   +---+                    +---+
+```
+
+But ``bind`` lets you do more than just change dependencies; you can also create
+new computations with new nodes.
+
+Here's an example of this in action. First, let's bring back the
+function for summing together a list of incrementals from the previous
+part.
+
+First, let's bring back the function for summing together a list of incrementals
+from the previous part.
+
+
+
+```ocaml
+let incr_list_sum l =
+  match List.reduce_balanced l ~f:(Incr.map2 ~f:( +. )) with
+  | None -> return 0.
+  | Some x -> x
+```
+
+Let's get a starting set of input values.
+
+```ocaml
+let inputs = Array.init 10_000 ~f:(fun i -> Incr.Var.create (Float.of_int i));;
+let (:=) = Incr.Var.set
+let (!) = Incr.Var.value;;
+```
+
+Let's create an incremental that dynamically chooses which values to sum together.
+Here, we'll initialize it to indices of the first 100 elements.
+
+```ocaml
+let things_to_sum = Incr.Var.create (List.init ~f:Fn.id 100)
+
+(*
+ * val things_to_sum : int list Incr.Var.t = <abstr>
+ *)
+```
+
+Now we can use ``bind`` to build a computation that sums together the
+elements from ``inputs`` as indicated by ``things_to_sum``.
+
+```ocaml
+let dynamic_sum =
+  let%bind things_to_sum = Incr.Var.watch things_to_sum in
+  incr_list_sum
+    (List.map things_to_sum ~f:(fun i ->
+       Incr.Var.watch inputs.(i)))
+
+(*
+ * val dynamic_sum : float Incr.t = <abstr>
+ *)
+```
+
+Now, let's observe the value and write some code to stabilize the
+computation and print out the results.
+
+```ocaml
+let dynamic_sum_obs = Incr.observe dynamic_sum
+let print () =
+  Incr.stabilize ();
+  printf "%f\n" (Incr.Observer.value_exn dynamic_sum_obs);;
+
+let () = print ()
+
+(*
+ * 4950.000000
+ *)
+```
+
+Now we can update the computation by either changing the values in the
+``inputs`` array, or by changing ``things_to_sum``.
+
+```ocaml
+let () =
+  inputs.(3) := !(inputs.(3)) +. 50.;
+  print ()
+
+(* 5000.000000 *)
+
+let () =
+  things_to_sum := [1;10;100];
+  print ()
+
+(* 111.000000 *)
+```
+
+*bind* is often expensive. If you make large parts of your graph dynamic by
+dint of using ``bind``, you tend to make that part of the computation entirely
+non-incremental.
+
 ## map
 
 ## pitfalls
