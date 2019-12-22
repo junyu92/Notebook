@@ -16,6 +16,8 @@ nav:
     - Linux:
         - 'Timer': 'linux/timer.md'
         - 'File System': 'linux/fs.md'
-    - Ocaml:
+    - OCaml:
         - 'Incremental: 'ocaml/incremental.md'
+    - Analysis:
+        - 'Introduction': 'analysis/1_introduction.md'
 theme: readthedocs
