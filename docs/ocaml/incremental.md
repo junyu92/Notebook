@@ -2,7 +2,7 @@
 
 ## introduction
 
-Incremental si an optimization tool.
+Incremental is an optimization tool.
 
 ### The computational model
 
