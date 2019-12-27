@@ -193,7 +193,112 @@ while not (Stack.is_empty t.run_on_update_handlers) do
 done;
 ```
 
+The last step is setting the status of ``state`` to ``Not_stabilizing``.
+
 ```ocaml
 t.status <- Not_stabilizing;
 reclaim_space_in_weak_hashtbls t
+```
+
+## Recompute & Recompute_heap
+
+Every state maintains a recompute_heap to compute the value of nodes.
+Assuming that ``n`` is a node in the heap, **every node depend on ``n`` has the
+higher height than ``n``**.
+
+```ocaml
+let recompute_everything_that_is_necessary t =
+  let module R = Recompute_heap in
+  let r = t.recompute_heap in
+  while R.length r > 0 do
+    let (T node) = R.remove_min r in
+    recompute node
+  done;
+;;
+```
+
+The core function of ``recompute_everything_that_is_necessary`` is ``recompute``.
+According to the type of Node, ``recompute`` will compute value differently.
+
+If the type of Node is ``Var``, this function just get the value of var.
+
+```ocaml
+| Var var -> maybe_change_value node var.value
+```
+
+If the type is ``Map2``, the function will apply ``n1`` and ``n2`` to function ``f``. Since
+current node depends on ``n1`` and ``n2``, ``n1`` and ``n2`` have lower height than current node,
+they must had already been computed.
+
+```ocaml
+| Map2 (f, n1, n2) ->
+  maybe_change_value node (f (Node.value_exn n1) (Node.value_exn n2))
+```
+
+``Bind`` is much different and powerful than others.
+
+```ocaml
+val bind : 'a t -> f:('a -> 'b t) -> 'b t
+
+val if_ : bool t -> a t -> a t -> a t
+let if_ a b c = bind a ~f:(fun a -> if a then b else c)
+```
+
+```ocaml
+| Bind_lhs_change
+    ({ main
+     ; f
+     ; lhs
+     ; rhs_scope
+     ; rhs = old_rhs
+     ; all_nodes_created_on_rhs = old_all_nodes_created_on_rhs
+     ; _
+     } as bind) ->
+```
+
+We clear ``all_nodes_created_on_rhs`` so it will hold just the nodes created by
+this call to ``f``(via ``run_with_scope``).
+
+```ocaml
+bind.all_nodes_created_on_rhs <- Uopt.none;
+let rhs = run_with_scope t rhs_scope ~f:(fun () -> f (Node.value_exn lhs)) in
+bind.rhs <- Uopt.some rhs;
+```
+
+
+(* Anticipate what [maybe_change_value] will do, to make sure Bind_main is stale
+   right away. This way, if the new child is invalid, we'll satisfy the invariant
+   saying that [needs_to_be_computed bind_main] in [propagate_invalidity] *)
+
+```ocaml
+  node.changed_at <- t.stabilization_num;
+  change_child
+    ~parent:main
+    ~old_child:old_rhs
+    ~new_child:rhs
+    ~child_index:Kind.bind_rhs_child_index;
+```
+
+We invalidate after ``change_child``, because invalidation changes the ``kind`` of
+nodes to ``Invalid``, which means that we can no longer visit their children.
+Also, the ``old_rhs`` nodes are typically made unnecessary by ``change_child``, and
+so by invalidating afterwards, we will not waste time adding them to the
+recompute heap and then removing them.
+
+```ocaml
+if Uopt.is_some old_rhs
+then (
+  if t.bind_lhs_change_should_invalidate_rhs
+  then invalidate_nodes_created_on_rhs old_all_nodes_created_on_rhs
+  else
+    rescope_nodes_created_on_rhs
+      t
+      old_all_nodes_created_on_rhs
+      ~new_scope:main.created_in;
+  propagate_invalidity t);
+(* [node] was valid at the start of the [Bind_lhs_change] branch, and invalidation
+   only visits higher nodes, so [node] is still valid. *)
+if debug then assert (Node.is_valid node);
+maybe_change_value node ()
+| Bind_main { rhs; _ } -> copy_child ~parent:node ~child:(Uopt.value_exn rhs)
 ```
