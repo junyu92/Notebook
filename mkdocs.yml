@@ -19,6 +19,7 @@ nav:
     - OCaml:
         - 'Incremental': 'ocaml/incremental.md'
         - 'Incremental_Src_view': 'ocaml/incremental_source_view.md'
+        - 'Stablize': 'ocaml/stablize.md'
     - Analysis:
         - 'Introduction': 'analysis/1_introduction.md'
 theme: readthedocs
