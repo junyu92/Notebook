@@ -2,6 +2,7 @@ site_name: NoteBook
 nav:
     - Home: index.md
     - English Grammar:
+        - 'Today': 'english_grammar/today.md'
         - 'TODO': 'english_grammar/todo.md'
         - 'Verb': 'english_grammar/verb.md'
         - 'Model verb': 'english_grammar/model_verb.md'
@@ -16,10 +17,14 @@ nav:
     - Linux:
         - 'Timer': 'linux/timer.md'
         - 'File System': 'linux/fs.md'
+        - 'Kthread': 'linux/kthread.md'
     - OCaml:
         - 'Incremental': 'ocaml/incremental.md'
         - 'Incremental_Src_view': 'ocaml/incremental_source_view.md'
         - 'Stablize': 'ocaml/stablize.md'
     - Analysis:
         - 'Introduction': 'analysis/1_introduction.md'
+    - Shared-Memory synchronization:
+        - 'Introduction': 'shared_memory_synchronization/1_introduction.md'
+        - 'Architectural Background': 'shared_memory_synchronization/2_architectural_background.md'
 theme: readthedocs
