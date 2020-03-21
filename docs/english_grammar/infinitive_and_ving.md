@@ -60,3 +60,30 @@
 
 * Just **carry on stirring** the mixture until it boils.
 
+## 一些含有V-ing形式的结构
+
+### 当两件事同时发生, 可以用一个主要动词和一个-ing形式.
+
+* All afternoon Claire **lay** in a hammock **reading** a magazine.
+
+### 这种结构还可以表示一个动作发生在另一个动作的进行过程中. 用时较长的动作用-ing形式.
+
+* Matthw **injured** his knee **doing** gymnastics.
+
+### 先后发生的动作, 可以用-ing形式表示第一个动作.
+
+* **Opening** the bottle, Mike poured the drinks.
+* **Turning** right into Madison Avenue, the car drove north for two blocks.
+
+也可以用完成时，如果其中一个动作用的时间表较长, 则必须用完成时.
+
+* **Having repaired** the car, Tom took it out for a road test.
+
+### -ing形式还可以表示原因
+
+* The fans queued for hours, **hoping** to get tickets.
+* **Being** the youngest child, Natasha was her father's favourite.
+
+也可以用-ving的完成时来说明原因.
+
+* **Having spent** all the money, Daniel couldn't afford a new jacket.
