@@ -27,4 +27,4 @@ nav:
     - Shared-Memory synchronization:
         - 'Introduction': 'shared_memory_synchronization/1_introduction.md'
         - 'Architectural Background': 'shared_memory_synchronization/2_architectural_background.md'
-theme: material
+theme: mkdocs
